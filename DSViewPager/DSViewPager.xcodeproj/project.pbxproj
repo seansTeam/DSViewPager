@@ -14,6 +14,9 @@
 		1444FD271B31721D000B3C97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1444FD261B31721D000B3C97 /* Images.xcassets */; };
 		1444FD2A1B31721D000B3C97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1444FD281B31721D000B3C97 /* LaunchScreen.xib */; };
 		1444FD361B31721D000B3C97 /* DSViewPagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1444FD351B31721D000B3C97 /* DSViewPagerTests.m */; };
+		1444FD431B3180B0000B3C97 /* ViewPagerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1444FD421B3180B0000B3C97 /* ViewPagerCollectionView.m */; };
+		1444FD471B31839F000B3C97 /* PageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1444FD451B31839F000B3C97 /* PageCollectionViewCell.m */; };
+		1444FD481B31839F000B3C97 /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1444FD461B31839F000B3C97 /* PageCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 		1444FD2F1B31721D000B3C97 /* DSViewPagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSViewPagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1444FD341B31721D000B3C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1444FD351B31721D000B3C97 /* DSViewPagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSViewPagerTests.m; sourceTree = "<group>"; };
+		1444FD411B3180B0000B3C97 /* ViewPagerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerCollectionView.h; sourceTree = "<group>"; };
+		1444FD421B3180B0000B3C97 /* ViewPagerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerCollectionView.m; sourceTree = "<group>"; };
+		1444FD441B31839F000B3C97 /* PageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageCollectionViewCell.h; sourceTree = "<group>"; };
+		1444FD451B31839F000B3C97 /* PageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCollectionViewCell.m; sourceTree = "<group>"; };
+		1444FD461B31839F000B3C97 /* PageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,11 @@
 		1444FD401B31729E000B3C97 /* DSViewPagerKit */ = {
 			isa = PBXGroup;
 			children = (
+				1444FD411B3180B0000B3C97 /* ViewPagerCollectionView.h */,
+				1444FD421B3180B0000B3C97 /* ViewPagerCollectionView.m */,
+				1444FD441B31839F000B3C97 /* PageCollectionViewCell.h */,
+				1444FD451B31839F000B3C97 /* PageCollectionViewCell.m */,
+				1444FD461B31839F000B3C97 /* PageCollectionViewCell.xib */,
 			);
 			path = DSViewPagerKit;
 			sourceTree = "<group>";
@@ -218,6 +231,7 @@
 				1444FD251B31721D000B3C97 /* Main.storyboard in Resources */,
 				1444FD2A1B31721D000B3C97 /* LaunchScreen.xib in Resources */,
 				1444FD271B31721D000B3C97 /* Images.xcassets in Resources */,
+				1444FD481B31839F000B3C97 /* PageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1444FD221B31721D000B3C97 /* ViewController.m in Sources */,
+				1444FD431B3180B0000B3C97 /* ViewPagerCollectionView.m in Sources */,
 				1444FD1F1B31721D000B3C97 /* AppDelegate.m in Sources */,
 				1444FD1C1B31721D000B3C97 /* main.m in Sources */,
+				1444FD471B31839F000B3C97 /* PageCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
