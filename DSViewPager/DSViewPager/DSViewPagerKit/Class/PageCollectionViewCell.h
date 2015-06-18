@@ -10,4 +10,7 @@
 
 @interface PageCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *pageView;
+@property (weak, nonatomic) IBOutlet UILabel *pageTitle;
+
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "LiveViewPageView.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) DSViewPager *sdViewPager;
 
 @end
 
@@ -17,6 +20,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSMutableArray *testView = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 10; i++) {
+        [testView addObject:[[LiveViewPageView alloc] init]];
+    }
+    
+    self.sdViewPager = [[DSViewPager alloc] initWithArrayView:testView andWithFrame:self.page.bounds];
+    //self.page = self.sdViewPager;
+    [self.page addSubview:self.sdViewPager];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
 }
 
 - (void)didReceiveMemoryWarning {

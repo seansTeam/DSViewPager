@@ -14,9 +14,13 @@
 		1444FD271B31721D000B3C97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1444FD261B31721D000B3C97 /* Images.xcassets */; };
 		1444FD2A1B31721D000B3C97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1444FD281B31721D000B3C97 /* LaunchScreen.xib */; };
 		1444FD361B31721D000B3C97 /* DSViewPagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1444FD351B31721D000B3C97 /* DSViewPagerTests.m */; };
-		1444FD431B3180B0000B3C97 /* ViewPagerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1444FD421B3180B0000B3C97 /* ViewPagerCollectionView.m */; };
-		1444FD471B31839F000B3C97 /* PageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1444FD451B31839F000B3C97 /* PageCollectionViewCell.m */; };
-		1444FD481B31839F000B3C97 /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1444FD461B31839F000B3C97 /* PageCollectionViewCell.xib */; };
+		14A3AC501B329F5100C0A1DE /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A3AC491B329F5100C0A1DE /* DSViewPager.m */; };
+		14A3AC511B329F5100C0A1DE /* PageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A3AC4B1B329F5100C0A1DE /* PageCollectionViewCell.m */; };
+		14A3AC521B329F5100C0A1DE /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A3AC4C1B329F5100C0A1DE /* PageCollectionViewCell.xib */; };
+		14A3AC551B329F6800C0A1DE /* DSViewPager.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A3AC541B329F6800C0A1DE /* DSViewPager.xib */; };
+		14C64C021B32BF1C0078F980 /* LiveViewPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C64BFF1B32BF1C0078F980 /* LiveViewPageView.m */; };
+		14C64C031B32BF1C0078F980 /* LiveViewPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C64C001B32BF1C0078F980 /* LiveViewPageView.xib */; };
+		14C64C041B32BF1C0078F980 /* LiveViewPageView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C64C011B32BF1C0078F980 /* LiveViewPageView~ipad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,11 +47,17 @@
 		1444FD2F1B31721D000B3C97 /* DSViewPagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DSViewPagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1444FD341B31721D000B3C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1444FD351B31721D000B3C97 /* DSViewPagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSViewPagerTests.m; sourceTree = "<group>"; };
-		1444FD411B3180B0000B3C97 /* ViewPagerCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerCollectionView.h; sourceTree = "<group>"; };
-		1444FD421B3180B0000B3C97 /* ViewPagerCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerCollectionView.m; sourceTree = "<group>"; };
-		1444FD441B31839F000B3C97 /* PageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageCollectionViewCell.h; sourceTree = "<group>"; };
-		1444FD451B31839F000B3C97 /* PageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCollectionViewCell.m; sourceTree = "<group>"; };
-		1444FD461B31839F000B3C97 /* PageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCollectionViewCell.xib; sourceTree = "<group>"; };
+		14A3AC491B329F5100C0A1DE /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
+		14A3AC4A1B329F5100C0A1DE /* PageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageCollectionViewCell.h; sourceTree = "<group>"; };
+		14A3AC4B1B329F5100C0A1DE /* PageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCollectionViewCell.m; sourceTree = "<group>"; };
+		14A3AC4C1B329F5100C0A1DE /* PageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCollectionViewCell.xib; sourceTree = "<group>"; };
+		14A3AC4F1B329F5100C0A1DE /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
+		14A3AC541B329F6800C0A1DE /* DSViewPager.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPager.xib; sourceTree = "<group>"; };
+		14C64BFE1B32BF1C0078F980 /* LiveViewPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewPageView.h; sourceTree = "<group>"; };
+		14C64BFF1B32BF1C0078F980 /* LiveViewPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewPageView.m; sourceTree = "<group>"; };
+		14C64C001B32BF1C0078F980 /* LiveViewPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveViewPageView.xib; sourceTree = "<group>"; };
+		14C64C011B32BF1C0078F980 /* LiveViewPageView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "LiveViewPageView~ipad.xib"; sourceTree = "<group>"; };
+		14C64C1A1B32BFEE0078F980 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +99,12 @@
 		1444FD181B31721D000B3C97 /* DSViewPager */ = {
 			isa = PBXGroup;
 			children = (
-				1444FD3F1B31729E000B3C97 /* Class */,
+				14C64C1A1B32BFEE0078F980 /* Color.h */,
+				14C64BFE1B32BF1C0078F980 /* LiveViewPageView.h */,
+				14C64BFF1B32BF1C0078F980 /* LiveViewPageView.m */,
+				14C64C001B32BF1C0078F980 /* LiveViewPageView.xib */,
+				14C64C011B32BF1C0078F980 /* LiveViewPageView~ipad.xib */,
+				14A3AC471B329F5100C0A1DE /* DSViewPagerKit */,
 				1444FD1D1B31721D000B3C97 /* AppDelegate.h */,
 				1444FD1E1B31721D000B3C97 /* AppDelegate.m */,
 				1444FD201B31721D000B3C97 /* ViewController.h */,
@@ -128,24 +143,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1444FD3F1B31729E000B3C97 /* Class */ = {
+		14A3AC471B329F5100C0A1DE /* DSViewPagerKit */ = {
 			isa = PBXGroup;
 			children = (
-				1444FD401B31729E000B3C97 /* DSViewPagerKit */,
-			);
-			path = Class;
-			sourceTree = "<group>";
-		};
-		1444FD401B31729E000B3C97 /* DSViewPagerKit */ = {
-			isa = PBXGroup;
-			children = (
-				1444FD411B3180B0000B3C97 /* ViewPagerCollectionView.h */,
-				1444FD421B3180B0000B3C97 /* ViewPagerCollectionView.m */,
-				1444FD441B31839F000B3C97 /* PageCollectionViewCell.h */,
-				1444FD451B31839F000B3C97 /* PageCollectionViewCell.m */,
-				1444FD461B31839F000B3C97 /* PageCollectionViewCell.xib */,
+				14A3AC481B329F5100C0A1DE /* Class */,
+				14A3AC4F1B329F5100C0A1DE /* DSViewPager.h */,
 			);
 			path = DSViewPagerKit;
+			sourceTree = "<group>";
+		};
+		14A3AC481B329F5100C0A1DE /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				14A3AC491B329F5100C0A1DE /* DSViewPager.m */,
+				14A3AC541B329F6800C0A1DE /* DSViewPager.xib */,
+				14A3AC4A1B329F5100C0A1DE /* PageCollectionViewCell.h */,
+				14A3AC4B1B329F5100C0A1DE /* PageCollectionViewCell.m */,
+				14A3AC4C1B329F5100C0A1DE /* PageCollectionViewCell.xib */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,10 +244,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C64C031B32BF1C0078F980 /* LiveViewPageView.xib in Resources */,
+				14C64C041B32BF1C0078F980 /* LiveViewPageView~ipad.xib in Resources */,
 				1444FD251B31721D000B3C97 /* Main.storyboard in Resources */,
+				14A3AC551B329F6800C0A1DE /* DSViewPager.xib in Resources */,
 				1444FD2A1B31721D000B3C97 /* LaunchScreen.xib in Resources */,
 				1444FD271B31721D000B3C97 /* Images.xcassets in Resources */,
-				1444FD481B31839F000B3C97 /* PageCollectionViewCell.xib in Resources */,
+				14A3AC521B329F5100C0A1DE /* PageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,11 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14C64C021B32BF1C0078F980 /* LiveViewPageView.m in Sources */,
 				1444FD221B31721D000B3C97 /* ViewController.m in Sources */,
-				1444FD431B3180B0000B3C97 /* ViewPagerCollectionView.m in Sources */,
+				14A3AC501B329F5100C0A1DE /* DSViewPager.m in Sources */,
 				1444FD1F1B31721D000B3C97 /* AppDelegate.m in Sources */,
 				1444FD1C1B31721D000B3C97 /* main.m in Sources */,
-				1444FD471B31839F000B3C97 /* PageCollectionViewCell.m in Sources */,
+				14A3AC511B329F5100C0A1DE /* PageCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +474,7 @@
 				1444FD3B1B31721D000B3C97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1444FD3C1B31721D000B3C97 /* Build configuration list for PBXNativeTarget "DSViewPagerTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +483,7 @@
 				1444FD3E1B31721D000B3C97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
