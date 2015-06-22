@@ -92,20 +92,30 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PageCollectionViewCell *cell = (PageCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PageCollectionViewCell" forIndexPath:indexPath];
     UIView *pageView = self.page[indexPath.row];
-    cell.pageView.frame = pageView.frame;
+    pageView.frame = self.bounds;
+    cell.pageView.frame = self.bounds;
+    NSLog(@"%f",self.PageCollectionView.frame.origin.x);
+    NSLog(@"%f",self.PageCollectionView.frame.origin.y);
+    NSLog(@"%f",self.PageCollectionView.frame.size.height);
+    NSLog(@"%f",self.PageCollectionView.frame.size.width);
+    NSLog(@"%f",cell.frame.origin.x);
+    NSLog(@"%f",cell.frame.origin.y);
+    NSLog(@"%f",cell.frame.size.height);
+    NSLog(@"%f",cell.frame.size.width);
     [cell.pageTitle setText:[NSString stringWithFormat:@"%tu", indexPath.row]];
     for (UIView *view in cell.pageView.subviews) {
-        if (view != self.page[indexPath.row]) {
+        if (view != self.page[self.currentPageIndex] ) {
             [view removeFromSuperview];
             [cell.pageView addSubview:pageView];
         }
+        
     }
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-    return self.frame.size;
+    return self.PageCollectionView.bounds.size;
 }
 
 - (void)orientationChanged:(NSNotification *)notification {

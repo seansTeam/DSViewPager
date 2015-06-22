@@ -25,10 +25,31 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    // Observer when device orientation.
+    [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)dealloc {
+    // Remove observer.
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 - (void)initControlPanel {
     // !!!: Fake data.
+}
+
+- (void)orientationChanged:(NSNotification *)notification {
+    UIDeviceOrientation uiDeviceOrientation = [UIDevice currentDevice].orientation;
+    // Portrait
+    if (uiDeviceOrientation == UIInterfaceOrientationPortrait) {
+        
+    }
+    // Landscape
+    else if (uiDeviceOrientation == UIInterfaceOrientationLandscapeLeft ||
+             uiDeviceOrientation == UIInterfaceOrientationLandscapeRight) {
+        //self.movieView.frame = self.bounds;
+    }
 }
 
 @end
