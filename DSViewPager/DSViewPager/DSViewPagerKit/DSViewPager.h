@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DSViewPagerDelegate <NSObject>
+
+@optional
+- (void)didEnterPage:(NSInteger)page;
+- (void)didLeavePage:(NSInteger)page;
+
+@end
+
 @interface DSViewPager : UIView <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *PageCollectionView;
+@property (weak) id<DSViewPagerDelegate> delegate;
 
 - (id)initWithArrayView:(NSArray *)arrayView andWithFrame:(CGRect)frame;
 - (void)setPageViewWithArrayView:(NSArray *)arrayView;

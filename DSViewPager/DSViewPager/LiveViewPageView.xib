@@ -12,9 +12,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLs-LF-gFe">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLs-LF-gFe">
                     <rect key="frame" x="0.0" y="242" width="320" height="46"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="AEz-3b-0I2"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSB-Ir-MY2">
                     <rect key="frame" x="0.0" y="5" width="320" height="240"/>
@@ -30,10 +33,13 @@
             </subviews>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="aSB-Ir-MY2" firstAttribute="leading" secondItem="nLs-LF-gFe" secondAttribute="leading" id="2Jc-fg-bam"/>
+                <constraint firstItem="aSB-Ir-MY2" firstAttribute="width" secondItem="nLs-LF-gFe" secondAttribute="width" id="6kN-2N-7PN"/>
                 <constraint firstItem="aSB-Ir-MY2" firstAttribute="top" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="9FB-WL-SLw"/>
                 <constraint firstAttribute="centerY" secondItem="aSB-Ir-MY2" secondAttribute="centerY" priority="900" id="ByX-gd-Rdj"/>
                 <constraint firstAttribute="centerX" secondItem="aSB-Ir-MY2" secondAttribute="centerX" id="FCi-v2-rlP"/>
                 <constraint firstAttribute="bottom" secondItem="aSB-Ir-MY2" secondAttribute="bottom" priority="750" id="UGD-Qw-zpj"/>
+                <constraint firstItem="nLs-LF-gFe" firstAttribute="top" secondItem="aSB-Ir-MY2" secondAttribute="bottom" constant="-3" id="X97-c3-bER"/>
                 <constraint firstItem="aSB-Ir-MY2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="750" id="aka-k3-vkC"/>
                 <constraint firstItem="aSB-Ir-MY2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dXK-oR-0NU"/>
                 <constraint firstAttribute="trailing" secondItem="aSB-Ir-MY2" secondAttribute="trailing" id="k0n-Od-QMN"/>

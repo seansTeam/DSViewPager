@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "LiveViewPageView.h"
 
-@interface ViewController ()
+@interface ViewController () <DSViewPagerDelegate>
 
 @property (strong, nonatomic) DSViewPager *sdViewPager;
 
@@ -20,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -30,6 +29,7 @@
     }
     
     self.sdViewPager = [[DSViewPager alloc] initWithArrayView:testView andWithFrame:self.page.bounds];
+    self.sdViewPager.delegate = self;
     //self.page = self.sdViewPager;
     [self.page addSubview:self.sdViewPager];
 }
@@ -55,6 +55,14 @@
         default:
             break;
     }
+}
+
+- (void)didEnterPage:(NSInteger)page {
+    
+}
+
+- (void)didLeavePage:(NSInteger)page {
+    
 }
 
 @end

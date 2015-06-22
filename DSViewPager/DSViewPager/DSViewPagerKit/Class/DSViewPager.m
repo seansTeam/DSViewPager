@@ -73,9 +73,11 @@
 }
 
 - (void)updatePager {
+    [self.delegate didLeavePage:self.currentPageIndex];
     CGFloat pageWidth = self.PageCollectionView.frame.size.width;
     NSInteger currentPageIndex =  floor((self.PageCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.currentPageIndex = currentPageIndex;
+    [self.delegate didEnterPage:self.currentPageIndex];
     NSLog(@"%tu", currentPageIndex);
 }
 
@@ -89,7 +91,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PageCollectionViewCell *cell = (PageCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PageCollectionViewCell" forIndexPath:indexPath];
-    
     UIView *pageView = self.page[indexPath.row];
     cell.pageView.frame = pageView.frame;
     [cell.pageTitle setText:[NSString stringWithFormat:@"%tu", indexPath.row]];
@@ -128,10 +129,6 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [self updatePager];
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     [self updatePager];
 }
 
