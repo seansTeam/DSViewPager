@@ -20,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     NSMutableArray *testView = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
         [testView addObject:[[LiveViewPageView alloc] init]];
@@ -30,13 +34,27 @@
     [self.page addSubview:self.sdViewPager];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    switch (toInterfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+            self.navigationController.navigationBarHidden = NO;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            
+            break;
+            
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:
+            self.navigationController.navigationBarHidden = YES;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

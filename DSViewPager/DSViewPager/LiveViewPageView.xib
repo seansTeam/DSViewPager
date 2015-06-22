@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LiveViewPageView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="474"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLs-LF-gFe">
@@ -20,7 +20,7 @@
                     <rect key="frame" x="0.0" y="5" width="320" height="240"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="aSB-Ir-MY2" secondAttribute="height" multiplier="4:3" id="mXE-BN-SNy"/>
+                        <constraint firstAttribute="width" secondItem="aSB-Ir-MY2" secondAttribute="height" multiplier="4:3" id="dxW-1d-oFf"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DWh-UR-wEl">
@@ -28,14 +28,19 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="aSB-Ir-MY2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="9FB-WL-SLw"/>
+                <constraint firstItem="aSB-Ir-MY2" firstAttribute="top" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="9FB-WL-SLw"/>
+                <constraint firstAttribute="centerY" secondItem="aSB-Ir-MY2" secondAttribute="centerY" priority="900" id="ByX-gd-Rdj"/>
                 <constraint firstAttribute="centerX" secondItem="aSB-Ir-MY2" secondAttribute="centerX" id="FCi-v2-rlP"/>
+                <constraint firstAttribute="bottom" secondItem="aSB-Ir-MY2" secondAttribute="bottom" priority="750" id="UGD-Qw-zpj"/>
+                <constraint firstItem="aSB-Ir-MY2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="750" id="aka-k3-vkC"/>
                 <constraint firstItem="aSB-Ir-MY2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dXK-oR-0NU"/>
                 <constraint firstAttribute="trailing" secondItem="aSB-Ir-MY2" secondAttribute="trailing" id="k0n-Od-QMN"/>
+                <constraint firstItem="aSB-Ir-MY2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="kGT-6K-REy"/>
+                <constraint firstItem="aSB-Ir-MY2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="250" constant="5" id="xwc-i7-7wN"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="controlPanelView" destination="DWh-UR-wEl" id="dhd-xK-NMU"/>
                 <outlet property="movieView" destination="aSB-Ir-MY2" id="SRh-x3-BIM"/>
@@ -43,4 +48,9 @@
             <point key="canvasLocation" x="445" y="414"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
