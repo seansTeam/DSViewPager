@@ -27,10 +27,9 @@
     for (int i = 0; i < 10; i++) {
         [testView addObject:[[LiveViewPageView alloc] init]];
     }
-    
     self.sdViewPager = [[DSViewPager alloc] initWithArrayView:testView andWithFrame:self.page.bounds];
+    [self.sdViewPager initPagerUIWithFrame:self.page.bounds];
     self.sdViewPager.delegate = self;
-    //self.page = self.sdViewPager;
     [self.page addSubview:self.sdViewPager];
 }
 
