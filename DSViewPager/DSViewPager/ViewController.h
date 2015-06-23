@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DSViewPager.h"
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *page;
 
 @end
 
