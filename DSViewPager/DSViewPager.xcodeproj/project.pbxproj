@@ -15,8 +15,6 @@
 		1444FD2A1B31721D000B3C97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1444FD281B31721D000B3C97 /* LaunchScreen.xib */; };
 		1444FD361B31721D000B3C97 /* DSViewPagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1444FD351B31721D000B3C97 /* DSViewPagerTests.m */; };
 		14A3AC501B329F5100C0A1DE /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A3AC491B329F5100C0A1DE /* DSViewPager.m */; };
-		14A3AC511B329F5100C0A1DE /* PageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A3AC4B1B329F5100C0A1DE /* PageCollectionViewCell.m */; };
-		14A3AC521B329F5100C0A1DE /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A3AC4C1B329F5100C0A1DE /* PageCollectionViewCell.xib */; };
 		14A3AC551B329F6800C0A1DE /* DSViewPager.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A3AC541B329F6800C0A1DE /* DSViewPager.xib */; };
 		14C64C021B32BF1C0078F980 /* LiveViewPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C64BFF1B32BF1C0078F980 /* LiveViewPageView.m */; };
 		14C64C031B32BF1C0078F980 /* LiveViewPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C64C001B32BF1C0078F980 /* LiveViewPageView.xib */; };
@@ -48,9 +46,6 @@
 		1444FD341B31721D000B3C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1444FD351B31721D000B3C97 /* DSViewPagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSViewPagerTests.m; sourceTree = "<group>"; };
 		14A3AC491B329F5100C0A1DE /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
-		14A3AC4A1B329F5100C0A1DE /* PageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageCollectionViewCell.h; sourceTree = "<group>"; };
-		14A3AC4B1B329F5100C0A1DE /* PageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageCollectionViewCell.m; sourceTree = "<group>"; };
-		14A3AC4C1B329F5100C0A1DE /* PageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCollectionViewCell.xib; sourceTree = "<group>"; };
 		14A3AC4F1B329F5100C0A1DE /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		14A3AC541B329F6800C0A1DE /* DSViewPager.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPager.xib; sourceTree = "<group>"; };
 		14C64BFE1B32BF1C0078F980 /* LiveViewPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewPageView.h; sourceTree = "<group>"; };
@@ -157,9 +152,6 @@
 			children = (
 				14A3AC491B329F5100C0A1DE /* DSViewPager.m */,
 				14A3AC541B329F6800C0A1DE /* DSViewPager.xib */,
-				14A3AC4A1B329F5100C0A1DE /* PageCollectionViewCell.h */,
-				14A3AC4B1B329F5100C0A1DE /* PageCollectionViewCell.m */,
-				14A3AC4C1B329F5100C0A1DE /* PageCollectionViewCell.xib */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -250,7 +242,6 @@
 				14A3AC551B329F6800C0A1DE /* DSViewPager.xib in Resources */,
 				1444FD2A1B31721D000B3C97 /* LaunchScreen.xib in Resources */,
 				1444FD271B31721D000B3C97 /* Images.xcassets in Resources */,
-				14A3AC521B329F5100C0A1DE /* PageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +264,6 @@
 				14A3AC501B329F5100C0A1DE /* DSViewPager.m in Sources */,
 				1444FD1F1B31721D000B3C97 /* AppDelegate.m in Sources */,
 				1444FD1C1B31721D000B3C97 /* main.m in Sources */,
-				14A3AC511B329F5100C0A1DE /* PageCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

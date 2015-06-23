@@ -16,12 +16,14 @@
 
 @end
 
-@interface DSViewPager : UIView <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface DSViewPager : UIView
 
+@property (weak, nonatomic) IBOutlet UIScrollView *pageScrollView;
 @property (weak, nonatomic) IBOutlet UICollectionView *PageCollectionView;
 @property (weak) id<DSViewPagerDelegate> delegate;
 
 - (id)initWithArrayView:(NSArray *)arrayView andWithFrame:(CGRect)frame;
+- (void)initPagerUIWithFrame:(CGRect)frame;
 - (void)setPageViewWithArrayView:(NSArray *)arrayView;
 - (void)AddPageWithView:(UIView *)view;
 - (void)reloadUI;

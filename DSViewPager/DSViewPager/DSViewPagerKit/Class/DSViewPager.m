@@ -7,9 +7,8 @@
 //
 
 #import "DSViewPager.h"
-#import "PageCollectionViewCell.h"
 
-@interface DSViewPager ()
+@interface DSViewPager () <UIScrollViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *page;
 @property (nonatomic) NSInteger currentPageIndex;
@@ -46,11 +45,8 @@
 - (void)awakeFromNib {
     // Initialization code
     
-    self.PageCollectionView.delegate = self;
-    self.PageCollectionView.dataSource = self;
-    [self.PageCollectionView registerClass:[PageCollectionViewCell class] forCellWithReuseIdentifier:@"PageCollectionViewCell"];
     self.currentPageIndex = 0;
-    
+    self.pageScrollView.delegate = self;
     // Observer when device orientation.
     [[NSNotificationCenter defaultCenter] addObserver:self  selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
@@ -58,6 +54,10 @@
 - (void)dealloc {
     // Remove observer.
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
+- (void)initPagerUIWithFrame:(CGRect)frame {
+    [self createPagesWithArrayView:self.page andFrame:(CGRect)frame];
 }
 
 - (void)AddPageWithView:(UIView *)view {
@@ -72,50 +72,52 @@
     [self.PageCollectionView reloadData];
 }
 
+- (void)createPagesWithArrayView:(NSArray *)page andFrame:(CGRect)frame {
+    NSInteger numberOfPages = [page count];
+    //self.pageBackgroundViews = [[NSMutableArray alloc] init];
+    
+    for (UIView *view in self.pageScrollView.subviews) {
+        [view removeFromSuperview];
+    }
+    for (int i = 0; i < numberOfPages; i++) {
+
+        [page[i] setFrame:CGRectMake(CGRectGetWidth(frame) * i, 0, CGRectGetWidth(self.pageScrollView.bounds), CGRectGetHeight(self.pageScrollView.bounds))];
+
+        // Get double click event to prevent double click crash when mediaplayer stop
+        [self headOffDoubleClickGesture:page[i]];
+        
+        [self.pageScrollView addSubview:page[i]];
+    }
+    
+    [self.pageScrollView setContentSize:CGSizeMake(CGRectGetWidth(frame) * (numberOfPages), 0)];
+}
+
 - (void)updatePager {
     [self.delegate didLeavePage:self.currentPageIndex];
-    CGFloat pageWidth = self.PageCollectionView.frame.size.width;
-    NSInteger currentPageIndex =  floor((self.PageCollectionView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    CGFloat pageWidth = self.pageScrollView.frame.size.width;
+    NSInteger currentPageIndex =  floor((self.pageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.currentPageIndex = currentPageIndex;
     [self.delegate didEnterPage:self.currentPageIndex];
     NSLog(@"%tu", currentPageIndex);
 }
 
 - (void)moveToCurrentPage:(NSInteger)page {
-    [self.PageCollectionView setContentOffset:CGPointMake(CGRectGetWidth(self.PageCollectionView.bounds)*page,0) animated:YES];
+    [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*page,0) animated:YES];
+}
+
+- (void)headOffDoubleClickGesture:(UIView *)view {
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(respondToTapGesture:)];
+    tapRecognizer.numberOfTapsRequired = 2;
+    [view addGestureRecognizer:tapRecognizer];
+}
+
+- (IBAction)respondToTapGesture:(UITapGestureRecognizer *)recognizer {
+    NSLog(@"Double click bug"); // FIXME: Get double click to fix vlc crash bug.
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.page count];
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PageCollectionViewCell *cell = (PageCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"PageCollectionViewCell" forIndexPath:indexPath];
-    UIView *pageView = self.page[indexPath.row];
-    pageView.frame = self.bounds;
-    cell.pageView.frame = self.bounds;
-    NSLog(@"%f",self.PageCollectionView.frame.origin.x);
-    NSLog(@"%f",self.PageCollectionView.frame.origin.y);
-    NSLog(@"%f",self.PageCollectionView.frame.size.height);
-    NSLog(@"%f",self.PageCollectionView.frame.size.width);
-    NSLog(@"%f",cell.frame.origin.x);
-    NSLog(@"%f",cell.frame.origin.y);
-    NSLog(@"%f",cell.frame.size.height);
-    NSLog(@"%f",cell.frame.size.width);
-    [cell.pageTitle setText:[NSString stringWithFormat:@"%tu", indexPath.row]];
-    for (UIView *view in cell.pageView.subviews) {
-        if (view != self.page[self.currentPageIndex] ) {
-            [view removeFromSuperview];
-            [cell.pageView addSubview:pageView];
-        }
-        
-    }
-    return cell;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    return self.PageCollectionView.bounds.size;
 }
 
 - (void)orientationChanged:(NSNotification *)notification {
