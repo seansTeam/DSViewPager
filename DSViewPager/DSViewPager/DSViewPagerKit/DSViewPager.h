@@ -22,9 +22,10 @@
 @property (weak) id<DSViewPagerDelegate> delegate;
 
 - (id)initWithArrayView:(NSArray *)arrayView andWithFrame:(CGRect)frame;
-- (void)initPagerUIWithFrame:(CGRect)frame;
+- (void)initPagerUIWithFrame:(CGRect)frame andDelegate:(id)delegate;
 - (void)setPageViewWithArrayView:(NSArray *)arrayView;
 - (void)AddPageWithView:(UIView *)view;
-- (void)reloadUI;
+
+- (void)moveToCurrentPage:(NSInteger)page;
 
 @end

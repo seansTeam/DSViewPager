@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) NSMutableArray *page;
 @property (nonatomic) NSInteger currentPageIndex;
+@property (nonatomic) CGRect portraitFrame;
+@property (nonatomic) CGRect scrollViewFrame;
 
 @end
 
@@ -56,8 +58,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
-- (void)initPagerUIWithFrame:(CGRect)frame {
-    [self createPagesWithArrayView:self.page andFrame:(CGRect)frame];
+- (void)initPagerUIWithFrame:(CGRect)frame andDelegate:(id)delegate {
+    self.portraitFrame = frame;
+    self.scrollViewFrame = self.pageScrollView.bounds;
+    [self createPagesWithArrayView:self.page andFrame:(CGRect)frame andDelegate:delegate];
 }
 
 - (void)AddPageWithView:(UIView *)view {
@@ -68,13 +72,8 @@
     
 }
 
-- (void)reloadUI {
-    [self.PageCollectionView reloadData];
-}
-
-- (void)createPagesWithArrayView:(NSArray *)page andFrame:(CGRect)frame {
+- (void)createPagesWithArrayView:(NSArray *)page andFrame:(CGRect)frame andDelegate:(id)delegate {
     NSInteger numberOfPages = [page count];
-    //self.pageBackgroundViews = [[NSMutableArray alloc] init];
     
     for (UIView *view in self.pageScrollView.subviews) {
         [view removeFromSuperview];
@@ -92,13 +91,36 @@
     [self.pageScrollView setContentSize:CGSizeMake(CGRectGetWidth(frame) * (numberOfPages), 0)];
 }
 
+- (void)updatePageToLandscape {
+    NSInteger numberOfPages = [self.page count];
+    for (int i = 0; i < numberOfPages; i++) {
+        
+        [self.page[i] setFrame:CGRectMake(CGRectGetWidth(self.pageScrollView.bounds) * i, 0, CGRectGetWidth(self.pageScrollView.bounds), CGRectGetHeight(self.pageScrollView.bounds))];
+    }
+    
+    [self.pageScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.pageScrollView.bounds) * (numberOfPages), 0)];
+}
+
+- (void)updatePageToPortrait {
+    NSInteger numberOfPages = [self.page count];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    for (int i = 0; i < numberOfPages; i++) {
+        [self.page[i] setFrame:CGRectMake(CGRectGetWidth(screenRect) * i, 0, CGRectGetWidth(screenRect), CGRectGetHeight(self.scrollViewFrame))];
+    }
+    
+    [self.pageScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.portraitFrame) * (numberOfPages), 0)];
+}
+
 - (void)updatePager {
-    [self.delegate didLeavePage:self.currentPageIndex];
     CGFloat pageWidth = self.pageScrollView.frame.size.width;
     NSInteger currentPageIndex =  floor((self.pageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    self.currentPageIndex = currentPageIndex;
-    [self.delegate didEnterPage:self.currentPageIndex];
-    NSLog(@"%tu", currentPageIndex);
+    if (self.currentPageIndex != currentPageIndex) {
+        [self.delegate didLeavePage:self.currentPageIndex];
+        
+        self.currentPageIndex = currentPageIndex;
+        [self.delegate didEnterPage:self.currentPageIndex];
+        NSLog(@"%tu", currentPageIndex);
+    }
 }
 
 - (void)moveToCurrentPage:(NSInteger)page {
@@ -124,15 +146,14 @@
     UIDeviceOrientation uiDeviceOrientation = [UIDevice currentDevice].orientation;
     // Portrait
     if (uiDeviceOrientation == UIInterfaceOrientationPortrait) {
-        
+        [self updatePageToPortrait];
     }
     // Landscape
     else if (uiDeviceOrientation == UIInterfaceOrientationLandscapeLeft ||
              uiDeviceOrientation == UIInterfaceOrientationLandscapeRight) {
-        
+        [self updatePageToLandscape];
     }
     [self moveToCurrentPage:self.currentPageIndex];
-    [self reloadUI];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -144,4 +165,7 @@
     [self updatePager];
 }
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    [self updatePager];
+}
 @end
