@@ -105,26 +105,40 @@
     NSInteger numberOfPages = [self.page count];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     for (int i = 0; i < numberOfPages; i++) {
-        [self.page[i] setFrame:CGRectMake(CGRectGetWidth(screenRect) * i, 0, CGRectGetWidth(screenRect), CGRectGetHeight(self.scrollViewFrame))];
+        [self.page[i] setFrame:CGRectMake(CGRectGetWidth(screenRect) * i, 0, CGRectGetWidth(screenRect), CGRectGetHeight(self.pageScrollView.bounds))];
     }
-    
-    [self.pageScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.portraitFrame) * (numberOfPages), 0)];
+    [self.pageScrollView setContentSize:CGSizeMake(CGRectGetWidth(self.pageScrollView.bounds) * (numberOfPages), 0)];
 }
 
 - (void)updatePager {
     CGFloat pageWidth = self.pageScrollView.frame.size.width;
     NSInteger currentPageIndex =  floor((self.pageScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     if (self.currentPageIndex != currentPageIndex) {
-        [self.delegate didLeavePage:self.currentPageIndex];
-        
+        if ([self.delegate respondsToSelector:@selector(didLeavePage:)]) {
+            [self.delegate didLeavePage:self.currentPageIndex];
+        }
         self.currentPageIndex = currentPageIndex;
-        [self.delegate didEnterPage:self.currentPageIndex];
+        if ([self.delegate respondsToSelector:@selector(didEnterPage:)]) {
+            [self.delegate didEnterPage:self.currentPageIndex];
+        }
         NSLog(@"%tu", currentPageIndex);
     }
 }
 
 - (void)moveToCurrentPage:(NSInteger)page {
-    [self.pageScrollView setContentOffset:CGPointMake(CGRectGetWidth(self.pageScrollView.bounds)*page,0) animated:YES];
+    UIInterfaceOrientation toInterfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat width = CGRectGetWidth(screenRect);
+    // Portrait
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+       width = CGRectGetWidth(screenRect) < CGRectGetHeight(screenRect) ? CGRectGetWidth(screenRect): CGRectGetHeight(screenRect);
+    }
+    // Landscape
+    else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+             toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        width = CGRectGetWidth(screenRect) > CGRectGetHeight(screenRect) ? CGRectGetWidth(screenRect): CGRectGetHeight(screenRect);
+    }
+    [self.pageScrollView setContentOffset:CGPointMake(width * page, 0) animated:YES];
 }
 
 - (void)headOffDoubleClickGesture:(UIView *)view {
